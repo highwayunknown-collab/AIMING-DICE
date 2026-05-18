@@ -1,0 +1,29 @@
+<!-- Screen Capture & Visual Drawing Overlay permissions -->
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+
+<application
+    android:allowBackup="false"
+    android:icon="@mipmap/ic_launcher"
+    android:label="Carrom Vision"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+    <activity
+        android:name=".MainActivity"
+        android:exported="true"
+        android:screenOrientation="portrait">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+    <!-- Media projection background service declaration -->
+    <service
+        android:name=".services.OverlayService"
+        android:enabled="true"
+        android:exported="false"
+        android:foregroundServiceType="mediaProjection" />
+
+</application>
